@@ -1,0 +1,346 @@
+* {
+    box-sizing: border-box;
+}
+
+.home,
+.portfolio,
+.about,
+.contact,
+.nav-page{
+    width: 100%;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    padding: 5%;
+    border: 1px dashed red;
+}
+
+.none-display {
+    display: none;
+}
+
+.none-scroll {
+    overflow: hidden;
+}
+
+/****************************************
+***************REUSABLES*****************
+*****************************************/
+.action-btn {
+    width: 160px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    user-select:none;
+    cursor: pointer;
+    transition: background-color .2s;
+    background-color: black;
+    border: 1px dashed red;
+    color: white;
+}
+
+.action-btn:hover {
+    background-color:darkgray;
+}
+
+.logo-btn {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50px;
+    border: 1px dashed red;
+}
+
+.subtitle-with-logo {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative ;
+    border: 1px dashed red;
+}
+
+.subtitle-with-logo .logo-btn,
+.subtitle-with-logo__subtitle{
+    position: absolute;
+    left: 5px
+}
+
+.subtitle-with-logo__subtitle {
+    left: 55px;
+}
+
+.location {
+    width: 100px;
+    height:110px;
+    border: 1px dashed red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.location p{
+    margin: 0;
+}
+
+.location img {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 10px;
+    position: relative;
+    animation: pindrop .2s ease forwards;
+}
+
+.location img:hover {
+    animation: pinup .2s ease forwards;
+}
+
+@keyframes pinup {
+    10% {
+        top: 2px;
+    }
+    100% {
+        top: -9px;
+    }
+}
+
+@keyframes pindrop {
+    10% {
+        top: -2px;
+    }
+    100% {
+        top: 5px;
+    }
+}
+
+.outline {
+    width: 80%;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    border:none;
+    margin: none;
+    border: 1px solid rgba(255,255,255,0);
+    transition: border-color .4s ease;
+}
+
+
+/****************************************
+****************NAV BAR******************
+*****************************************/
+.nav-bar {
+    width: 100vw;
+    height: 56px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    background-color: grey;
+}
+
+.nav-bar__btn {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 15px;
+    top: 6px;
+    cursor: pointer;
+    
+}
+
+.nav-bar__logo {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    left: calc((100% - 45px) / 2);
+    top: 5.5px;
+    cursor: pointer;
+    border: 1px dashed red;
+}
+
+/****************************************
+****************HOME*********************
+*****************************************/
+.home {
+    height: calc(100% - 56px);
+    align-items: center ;
+    background-color: dimgrey;
+    text-align: center;
+}
+
+/****************************************
+****************PORTFOLIO****************
+*****************************************/
+
+
+.project {
+    width: 80vw;
+    height: 120vw;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    text-align: center ;
+    border: 1px dashed red;
+}
+
+.project__pic {
+    width: 80%;
+    height: 60%;
+    margin-bottom: 10%;
+    border: 1px dashed red;
+}
+
+.project__description {
+    width: 80%;
+    height: 20%;
+    line-height: 0.5;
+    border: 1px dashed red;
+}
+
+/****************************************
+****************ABOUT********************
+*****************************************/
+
+/***********/
+
+.about__photo {
+    width: 80vw;
+    height: 90vw;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: 5%;
+}
+
+.about__photo img {
+    width: 100%;
+    height: 100%;
+}
+/***********/
+
+.social-media{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px dashed red;
+}
+/***********/
+
+.about__intro {
+    width: 100%;
+}
+
+/****************************************
+****************CONTACT********************
+*****************************************/
+.contact__intro,
+.contact .social-media,
+.contact__location,
+.contact form{
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.contact form {
+    margin-top: 5%;
+}
+
+.contact form input,
+.contact form textarea{
+    width: 100%; ;
+    margin: 5px 0;
+    border: none;
+    border-bottom: 1px solid grey;
+    transition: all .3s;
+    height: 3.8em;
+    resize: none;
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.contact form textarea:focus {
+    height: 15em;
+}
+
+/****************************************
+****************NAVPAGE********************
+*****************************************/
+.nav-page {
+    position: fixed;
+    z-index: 5;
+    height: calc(100% - 56px);
+    background: linear-gradient(to top, rgba(95, 104, 95,1),rgba(95, 104, 95,0.7));
+}
+
+.nav-page__links {
+    width: 80%;
+    height: 55%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2.5em;
+}
+
+.nav-page__links span,
+.nav-page__footer a{
+    cursor: pointer;
+    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+}
+
+.nav-page hr {
+    width: 93%;
+    opacity: 0.4;
+    position: absolute;
+    top: 72.5%;
+}
+
+.nav-page__footer {
+    width: 93%;
+    height: 15%;
+    position: absolute;
+    top: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around ; 
+    border: 1px dashed red;
+}
+
+.nav-page__footer a:hover{
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.nav-page__footer p{
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
