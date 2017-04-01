@@ -10,6 +10,26 @@ $(document).ready(function(){
             }
         })      
     };
+    var $homeLink = $(".nav-page__home-link");
+    var $portfolioLink = $(".nav-page__portfolio-link");
+    var $aboutLink = $(".nav-page__about-link");
+    var $contactLink = $(".nav-page__contact-link");
+    var allPages = [$(".home"),$(".portfolio"),$(".about"),$(".contact")];
+    var allNavLinks = [$homeLink,$portfolioLink,$aboutLink,$contactLink];
+    var currentPage; //string of current page name
+    function setOutline(element){
+        element.css("border-color","black");
+    }
+    function removeOutLine(element){
+        element.css("border-color","transparent");
+    }
+    function updateCurrentPage(){
+        allPages.forEach(function(page){
+            if(!page.hasClass("none-display")){
+            currentPage = page.attr("class");
+            }
+        })
+    }
     
     
     /***************NAVBAR*************************/
@@ -23,56 +43,43 @@ $(document).ready(function(){
         function disableScrolling(){
             $("body").toggleClass("none-scroll");
         };
+        function highlightCurrentPage(){
+            updateCurrentPage();
+            allNavLinks.forEach(function(link){
+                var thisPage = link.attr("class");
+                var match = thisPage.search(currentPage);
+                if(match !== -1){
+                    setOutline(link.parent());
+                }else {
+                    removeOutLine(link.parent());
+                }
+            })
+        }
         showNavPage();
+        highlightCurrentPage();
         disableScrolling();
     })
     
     /****************NAVPAGE************************/
     var $navPage = $(".nav-page");
-    var $homeLink = $(".nav-page__home-link");
-    var $portfolioLink = $(".nav-page__portfolio-link");
-    var $aboutLink = $(".nav-page__about-link");
-    var $contactLink = $(".nav-page__contact-link");
-    var allPages = [$(".home"),$(".portfolio"),$(".about"),$(".contact")];
-    var allNavLinks = [$homeLink,$portfolioLink,$aboutLink,$contactLink];
-    var currentPage;
-    function setOutline(element){
-        element.css("border-color","black");
-    }
-    function removeOutLine(element){
-        element.css("border-color","transparent");
-    }
-    setOutline($(".outline").first());
-    currentPage = "home";
     allNavLinks.forEach(function(link){
-        var thisCLass = link.attr("class").replace("nav-page__","").replace("-link","");
+        var thisPage = link.attr("class").replace("nav-page__","").replace("-link","");
         link.parent().click(function(){
-            currentPage = thisCLass;
             function closeNavPage(){
                 $navPage.addClass("none-display");
             };
             function enableScrolling(){
                 $("body").removeClass("none-scroll");
             };
-            function outlineThisOnly(){
-                var thisLink = link;
-                setOutline(link.parent());
-                allNavLinks.forEach(function(thatLink){
-                    if(thatLink !== thisLink){
-                        removeOutLine(thatLink.parent()) ;
-                    }
-                })
-            }
-            $navBtn.click(outlineThisOnly);
-            toThisPage(thisCLass);
             closeNavPage();
+            toThisPage(thisPage);
+            updateCurrentPage();
             enableScrolling();
-            
         });
         link.parent().hover(function(){
             setOutline(link.parent());
         },function(){
-            if(thisCLass !== currentPage){
+            if(thisPage !== currentPage){
                 removeOutLine(link.parent());
             }
         });
