@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    
-    /*****************REUSABLES***********************/
+    /****************************************
+    ***************REUSABLES*****************
+    *****************************************/
     var $homeLink = $(".nav-page__home-link");
     var $portfolioLink = $(".nav-page__portfolio-link");
     var $aboutLink = $(".nav-page__about-link");
@@ -83,7 +84,7 @@ $(document).ready(function(){
                 $navPage.fadeIn();
                 setTimeout(function(){
                     tl.timeScale(1).play();
-                },400);
+                },200);
             }else {
                 tl.timeScale(4).reverse();
                 setTimeout(function(){
@@ -91,8 +92,33 @@ $(document).ready(function(){
                     $navPage.fadeOut();
                 },300)
             }
-        }
-    /***************NAVBAR*************************/
+        };
+    function animateHomePage(){
+        var $h1 = $(".home h1"),
+            $h2 = $(".home h2"),
+            $span = $(".home .action-btn");
+        var tl = new TimelineLite();
+        tl.from($h1,1.5,{
+            y:30,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        })
+        .from($h2,1.5,{
+            y:30,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1")
+        .from($span,1.5,{
+            y:20,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1");
+        
+    };
+    
+    /****************************************
+    ****************NAV BAR******************
+    *****************************************/
     var $navBar = $(".nav-bar");
     var $navBtn = $(".nav-bar__btn");
     var $navLogo = $(".nav-bar__logo");
@@ -101,22 +127,22 @@ $(document).ready(function(){
     tl.from($firstOutline,0.5,{
     y:30,
     autoAlpha:0,
-    ease: Bounce.easeOut
+    ease: Power2.easeOut
     })
     .from($secondOutline,0.5,{
     y:30,
     autoAlpha:0,
-    ease: Bounce.easeOut
+    ease: Power2.easeOut
     },"-=0.3")
     .from($thirdOutline,0.5,{
     y:30,
     autoAlpha:0,
-    ease: Bounce.easeOut
+    ease: Power2.easeOut
     },"-=0.3")
     .from($fourthOutline,0.5,{
     y:30,
     autoAlpha:0,
-    ease: Bounce.easeOut
+    ease: Power2.easeOut
     },"-=0.3");
     tl.reversed(true);
     $navBtn.click(function(){
@@ -135,14 +161,15 @@ $(document).ready(function(){
         function disableScrolling(){
             $("body").toggleClass("none-scroll");
         };
-        /*animateNavBtn();*/
         animateNavBtn();
         animateNavPage();
         highlightCurrentPage();
         disableScrolling();
     })
     
-    /****************NAVPAGE************************/
+    /****************************************
+    ****************NAVPAGE********************
+    *****************************************/
     
     allNavLinks.forEach(function(link){
         var thisPage = link.attr("class").replace("nav-page__","").replace("-link","");
@@ -167,10 +194,13 @@ $(document).ready(function(){
         });
     });
     
-    /******************HOME**********************/
+    /****************************************
+    ****************HOME*********************
+    *****************************************/
     $(".home .action-btn").click(function(){
         toThisPage("portfolio");
-    })
+    });
+    animateHomePage();
 
     
     
