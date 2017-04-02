@@ -1,15 +1,6 @@
 $(document).ready(function(){
     
     /*****************REUSABLES***********************/
-    function toThisPage(pageClass){
-        allPages.forEach(function(page){
-            if(page.hasClass(pageClass)){
-                page.removeClass("none-display");
-            }else {
-                page.addClass("none-display");
-            }
-        })      
-    };
     var $homeLink = $(".nav-page__home-link");
     var $portfolioLink = $(".nav-page__portfolio-link");
     var $aboutLink = $(".nav-page__about-link");
@@ -24,6 +15,15 @@ $(document).ready(function(){
     var allPages = [$(".home"),$(".portfolio"),$(".about"),$(".contact")];
     var allNavLinks = [$homeLink,$portfolioLink,$aboutLink,$contactLink];
     var currentPage; //string of current page name
+    function toThisPage(pageClass){
+        allPages.forEach(function(page){
+            if(page.hasClass(pageClass)){
+                page.removeClass("none-display");
+            }else {
+                page.addClass("none-display");
+            }
+        })      
+    };
     function setOutline(element){
         element.css("border-color","black");
     }
@@ -78,19 +78,18 @@ $(document).ready(function(){
         
         };
     function animateNavPage(){
-            /*$navPage.fadeToggle(250);*/
+            $navPage.stop(true,true);
             if($navBtnClicked){
                 $navPage.fadeIn();
                 setTimeout(function(){
-                    tl.play();
+                    tl.timeScale(1).play();
                 },400);
             }else {
-                tl.reverse();
+                tl.timeScale(4).reverse();
                 setTimeout(function(){
+                    tl.progress(0);
                     $navPage.fadeOut();
-                },1000)
-                /*$navPage.delay(1500).fadeOut();*/
-                
+                },300)
             }
         }
     /***************NAVBAR*************************/
@@ -120,9 +119,6 @@ $(document).ready(function(){
     ease: Bounce.easeOut
     },"-=0.3");
     tl.reversed(true);
-    function toggle(){
-        tl.reversed() ? tl.play():tl.reverse();
-    }
     $navBtn.click(function(){
         function highlightCurrentPage(){
             updateCurrentPage();
@@ -140,7 +136,6 @@ $(document).ready(function(){
             $("body").toggleClass("none-scroll");
         };
         /*animateNavBtn();*/
-        $(this).clearQueue();
         animateNavBtn();
         animateNavPage();
         highlightCurrentPage();
