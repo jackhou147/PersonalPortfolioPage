@@ -36,10 +36,49 @@ $(document).ready(function(){
     var $navBar = $(".nav-bar");
     var $navBtn = $(".nav-bar__btn");
     var $navLogo = $(".nav-bar__logo");
+    var $navBtnClicked = false;
     $navBtn.click(function(){
+        function animateNavBtn(){
+            var $line1 = $(".nav-bar__btn hr:nth-child(1)");
+            var $line2 = $(".nav-bar__btn hr:nth-child(2)");
+            var $line3 = $(".nav-bar__btn hr:nth-child(3)");
+            function animate(){
+                TweenLite.to($line1,0.2,{
+                    rotation:45,
+                    transformOrigin:"50% 50%",
+                    y:12
+                });
+                TweenLite.to($line2,0.25,{
+                    opacity: 0,
+                    x: 10
+                })
+                TweenLite.to($line3,0.2,{
+                    rotation: -45,
+                    transformOrigin:"50% 50%",
+                    y:-8
+                })
+            };
+            function reverse(){
+                TweenLite.to($line1,0.2,{
+                    rotation: 0,
+                    transformOrigin:"50% 50%",
+                    y:0
+                });
+                TweenLite.to($line2,0.25,{
+                    opacity: 1,
+                    x: 0
+                })
+                TweenLite.to($line3,0.2,{
+                    rotation: 0,
+                    transformOrigin:"50% 50%",
+                    y:0
+                })
+            };
+            $navBtnClicked ? reverse() : animate();
+        };
         function showNavPage(){
             $navPage.toggleClass("none-display");
-        }
+        };
         function disableScrolling(){
             $("body").toggleClass("none-scroll");
         };
@@ -54,10 +93,12 @@ $(document).ready(function(){
                     removeOutLine(link.parent());
                 }
             })
-        }
+        };
+        animateNavBtn();
         showNavPage();
         highlightCurrentPage();
         disableScrolling();
+        $navBtnClicked = !$navBtnClicked;
     })
     
     /****************NAVPAGE************************/
