@@ -9,10 +9,10 @@ $(document).ready(function(){
     var $navPage = $(".nav-page");
     var $navPageLinks = $(".nav-page__links");
     var $navPageFooter=$(".nav-page__footer");
-    var $firstOutline = $(".nav-page__links .outline:nth-child(1)");
-    var $secondOutline = $(".nav-page__links .outline:nth-child(2)");
-    var $thirdOutline = $(".nav-page__links .outline:nth-child(3)");
-    var $fourthOutline = $(".nav-page__links .outline:nth-child(4)");
+    var $navLink1 = $(".nav-page__links .outline:nth-child(1)");
+    var $navLink2 = $(".nav-page__links .outline:nth-child(2)");
+    var $navLink3 = $(".nav-page__links .outline:nth-child(3)");
+    var $navLink4 = $(".nav-page__links .outline:nth-child(4)");
     var allPages = [$(".home"),$(".portfolio"),$(".about"),$(".contact")];
     var allNavLinks = [$homeLink,$portfolioLink,$aboutLink,$contactLink];
     var currentPage; //string of current page name
@@ -78,21 +78,6 @@ $(document).ready(function(){
             $navBtnClicked = !$navBtnClicked;
         
         };
-    function animateNavPage(){
-            $navPage.stop(true,true);
-            if($navBtnClicked){
-                $navPage.fadeIn();
-                setTimeout(function(){
-                    tl.timeScale(1).play();
-                },200);
-            }else {
-                tl.timeScale(4).reverse();
-                setTimeout(function(){
-                    tl.progress(0);
-                    $navPage.fadeOut();
-                },300)
-            }
-        };
     function animateHomePage(){
         var $h1 = $(".home h1"),
             $h2 = $(".home h2"),
@@ -115,6 +100,36 @@ $(document).ready(function(){
         },"-=1");
         
     };
+    function toggleBodyScrolling(){
+        $("body").toggleClass("none-scroll");
+    };
+    /*****timelines****/
+    var navPageTimeLine = new TimelineLite({reversed:true});
+    navPageTimeLine.from($navLink1,0.5,{
+                        y:30,
+                        autoAlpha:0,
+                        ease: Power2.easeOut
+                    })
+    .from($navLink2,0.5,{
+    y:30,
+    autoAlpha:0,
+    ease: Power2.easeOut
+},"-=0.35")
+    .from($navLink3,0.5,{
+    y:30,
+    autoAlpha:0,
+    ease: Power2.easeOut
+},"-=0.35")
+    .from($navLink4,0.5,{
+                        y:30,
+                        autoAlpha:0,
+                        ease: Power2.easeOut
+                    },"-=0.35");
+    function toggleNavPageTimeLine(){
+        navPageTimeLine.reversed()?navPageTimeLine.timeScale(1.5).play():
+        navPageTimeLine.timeScale(4).reverse();
+    }
+    
     
     /****************************************
     ****************NAV BAR******************
@@ -123,29 +138,7 @@ $(document).ready(function(){
     var $navBtn = $(".nav-bar__btn");
     var $navLogo = $(".nav-bar__logo");
     var $navBtnClicked = false;
-    var tl = new TimelineLite();
-    tl.from($firstOutline,0.5,{
-    y:30,
-    autoAlpha:0,
-    ease: Power2.easeOut
-    })
-    .from($secondOutline,0.5,{
-    y:30,
-    autoAlpha:0,
-    ease: Power2.easeOut
-    },"-=0.3")
-    .from($thirdOutline,0.5,{
-    y:30,
-    autoAlpha:0,
-    ease: Power2.easeOut
-    },"-=0.3")
-    .from($fourthOutline,0.5,{
-    y:30,
-    autoAlpha:0,
-    ease: Power2.easeOut
-    },"-=0.3");
-    tl.reversed(true);
-    $navBtn.click(function(){
+        $navBtn.click(function(){
         function highlightCurrentPage(){
             updateCurrentPage();
             allNavLinks.forEach(function(link){
@@ -158,13 +151,11 @@ $(document).ready(function(){
                 }
             })
         };
-        function disableScrolling(){
-            $("body").toggleClass("none-scroll");
-        };
         animateNavBtn();
-        animateNavPage();
+        $navPage.stop(true,true).fadeToggle();
+        toggleNavPageTimeLine();
         highlightCurrentPage();
-        disableScrolling();
+        toggleBodyScrolling();
     })
     
     /****************************************
@@ -174,16 +165,14 @@ $(document).ready(function(){
     allNavLinks.forEach(function(link){
         var thisPage = link.attr("class").replace("nav-page__","").replace("-link","");
         link.parent().click(function(){
-            function enableScrolling(){
-                $("body").removeClass("none-scroll");
-            };
             animateNavBtn(); 
-            animateNavPage();
+            toggleNavPageTimeLine();
             setTimeout(function(){
+                $navPage.stop(true,true).fadeOut();
                 toThisPage(thisPage);
                 updateCurrentPage();
-                enableScrolling();
-            },1300);
+                toggleBodyScrolling();
+            },300);
         });
         link.parent().hover(function(){
             setOutline(link.parent());
