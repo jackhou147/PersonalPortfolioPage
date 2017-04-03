@@ -57,7 +57,7 @@
     height: 40px;
     overflow: hidden;
     border-radius: 50px;
-    border: 1px dashed red;
+    border: 3px dashed red;
 }
 
 .subtitle-with-logo {
@@ -133,6 +133,10 @@
     margin: none;
     border: 1px solid rgba(255,255,255,0);
     transition: border-color .4s ease;
+}
+
+.social-media .logo-btn {
+    cursor: pointer;
 }
 
 
@@ -232,6 +236,7 @@
     width: 80%;
     height: 60%;
     margin-bottom: 10%;
+    border-radius: 15%;
     border: 1px dashed red;
 }
 
@@ -269,6 +274,9 @@
     justify-content: space-around;
     border: 1px dashed red;
 }
+
+
+
 /***********/
 
 .about__intro {
