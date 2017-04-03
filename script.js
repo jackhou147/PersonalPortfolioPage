@@ -19,8 +19,19 @@ $(document).ready(function(){
     function toThisPage(pageClass){
         allPages.forEach(function(page){
             if(page.hasClass(pageClass)){
+                //show this page
                 page.removeClass("none-display");
+                if(pageClass == "home"){
+                    homePageTimeLine();
+                }else if(pageClass == "portfolio"){
+                    portPageTimeLine();
+                }else if(pageClass == "about"){
+                    
+                }else if(pageClass == "contact"){
+                    
+                }
             }else {
+                //hide this page
                 page.addClass("none-display");
             }
         })      
@@ -78,28 +89,7 @@ $(document).ready(function(){
             $navBtnClicked = !$navBtnClicked;
         
         };
-    function animateHomePage(){
-        var $h1 = $(".home h1"),
-            $h2 = $(".home h2"),
-            $span = $(".home .action-btn");
-        var tl = new TimelineLite();
-        tl.from($h1,1.5,{
-            y:30,
-            autoAlpha:0,
-            ease: Power2.easeOut
-        })
-        .from($h2,1.5,{
-            y:30,
-            autoAlpha:0,
-            ease: Power2.easeOut
-        },"-=1")
-        .from($span,1.5,{
-            y:20,
-            autoAlpha:0,
-            ease: Power2.easeOut
-        },"-=1");
-        
-    };
+    
     function toggleBodyScrolling(){
         $("body").toggleClass("none-scroll");
     };
@@ -130,6 +120,77 @@ $(document).ready(function(){
         navPageTimeLine.timeScale(4).reverse();
     }
     
+    function homePageTimeLine(){
+        var $h1 = $(".home h1"),
+            $h2 = $(".home h2"),
+            $span = $(".home .action-btn"),
+            tl = new TimelineLite();
+        tl.from($h1,1.5,{
+            y:30,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        })
+        .from($h2,1.5,{
+            y:30,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1")
+        .from($span,1.5,{
+            y:20,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1");
+        
+    };
+    
+    function portPageTimeLine(){
+        var $project1 = $(".portfolio .project:nth-child(1)"),
+            $project2 = $(".portfolio .project:nth-child(2)"),
+            $project3 = $(".portfolio .project:nth-child(3)"),
+            $project4 = $(".portfolio .project:nth-child(4)"),
+            $project5 = $(".portfolio .project:nth-child(5)"),
+            $project6 = $(".portfolio .project:nth-child(6)"),
+            $project7 = $(".portfolio .project:nth-child(7)"),
+            tl = new TimelineLite();
+        tl.from($project1,0.8,{
+            y:3800,
+            autoAlpha:0,
+            ease: Power4.easeOut
+        })
+        .from($project2,2.5,{
+            y:3600,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1.5")
+        .from($project3,2.5,{
+            y:3500,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1.5")
+        .from($project4,2.5,{
+            y:3000,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1.5")
+        .from($project5,2.5,{
+            y:2000,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1.5")
+        .from($project6,2.5,{
+            y:1500,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1.5")
+        .from($project7,2.5,{
+            y:800,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        },"-=1.5");
+        tl.duration(8).play();
+        
+        
+    }
     
     /****************************************
     ****************NAV BAR******************
@@ -189,7 +250,7 @@ $(document).ready(function(){
     $(".home .action-btn").click(function(){
         toThisPage("portfolio");
     });
-    animateHomePage();
+    homePageTimeLine();
 
     
     
