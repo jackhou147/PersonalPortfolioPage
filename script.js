@@ -2,6 +2,10 @@ $(document).ready(function(){
     /****************************************
     ***************REUSABLES*****************
     *****************************************/
+    var $social1 = $(".social-media .logo-btn:nth-child(1)"),
+        $social2 = $(".social-media .logo-btn:nth-child(2)"),
+        $social3 = $(".social-media .logo-btn:nth-child(3)"),
+        $social4 = $(".social-media .logo-btn:nth-child(4)");
     var $homeLink = $(".nav-page__home-link");
     var $portfolioLink = $(".nav-page__portfolio-link");
     var $aboutLink = $(".nav-page__about-link");
@@ -17,6 +21,9 @@ $(document).ready(function(){
     var allNavLinks = [$homeLink,$portfolioLink,$aboutLink,$contactLink];
     var currentPage; //string of current page name
     function toThisPage(pageClass){
+        TweenLite.to(window,0.3,{
+            scrollTo:0
+        });
         allPages.forEach(function(page){
             if(page.hasClass(pageClass)){
                 //show this page
@@ -125,21 +132,21 @@ $(document).ready(function(){
             $h2 = $(".home h2"),
             $span = $(".home .action-btn"),
             tl = new TimelineLite();
-        tl.from($h1,1.5,{
+        tl.from($h1,1,{
             y:30,
             autoAlpha:0,
             ease: Power2.easeOut
         })
-        .from($h2,1.5,{
+        .from($h2,1,{
             y:30,
             autoAlpha:0,
             ease: Power2.easeOut
-        },"-=1")
-        .from($span,1.5,{
+        },"-=0.7")
+        .from($span,1,{
             y:20,
             autoAlpha:0,
             ease: Power2.easeOut
-        },"-=1");
+        },"-=0.7");
         
     };
     
@@ -213,11 +220,7 @@ $(document).ready(function(){
     };
     
     function aboutPageTimeLine(){
-        var $social1 = $(".about .logo-btn:nth-child(1)"),
-            $social2 = $(".about .logo-btn:nth-child(2)"),
-            $social3 = $(".about .logo-btn:nth-child(3)"),
-            $social4 = $(".about .logo-btn:nth-child(4)"),
-            $photo = $(".about .photo"),
+        var $photo = $(".about .photo"),
             $h1 = $(".about__intro h1"),
             $h3 = $(".about__intro h3"),
             $intro__p = $(".about__intro p"),
@@ -252,7 +255,6 @@ $(document).ready(function(){
         .from($h1,0.5,{
             x:50,
             autoAlpha:0,
-            ease: Power2.easeout
         },"-=0.45")
         .from($h3,0.5, {
             y:80,
@@ -277,7 +279,51 @@ $(document).ready(function(){
     };
     
     function contactPageTimeLine(){
-        
+        var $h2 = $(".contact h2"),
+            $p = $(".contact p"),
+            $location = $(".contact__location"),
+            $form = $(".contact .form"),
+            tl = new TimelineLite();
+        tl.from($h2,0.5,{
+            x: 50,
+            autoAlpha:0,
+            ease: Power2.easeout
+        })
+        .from($p,0.5,{
+            y:80,
+            autoAlpha:0,
+            ease: Power2.easeout
+        })
+        .from($location,0.5,{
+            y:40,
+            autoAlpha:0,
+            ease: Power2.easeout
+        })
+        .from($social1,1,{
+            x:-250,
+            rotation: 480,
+            ease: Power3.easeOut
+        },1.2)
+        .from($social2,1,{
+            x:-200,
+            rotation: 480,
+            ease: Power3.easeOut
+        },1.2)
+        .from($social3,1,{
+            x:200,
+            rotation: 480,
+            ease: Power3.easeOut
+        },1.2)
+        .from($social4,1,{
+            x:250,
+            rotation:480,
+            ease: Power3.easeOut
+        },1.2)
+        .from($form,0.5,{
+            y:80,
+            autoAlpha:0,
+            ease: Power3.easeOut
+        },"-=0.6")  
     }
     
     /****************************************
