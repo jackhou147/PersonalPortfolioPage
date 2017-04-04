@@ -165,56 +165,104 @@ $(document).ready(function(){
             $(".project:nth-child(6) .project__pic"),
             $project7 = 
             $(".project:nth-child(7) .project__pic"),
+            $text1 = $(".project:nth-child(1) .project__description"),
+            $text2 = $(".project:nth-child(2) .project__description"),
+            $text3 = $(".project:nth-child(3) .project__description"),
+            $text4 = $(".project:nth-child(4) .project__description"),
+            $text5 = $(".project:nth-child(5) .project__description"),
+            $text6 = $(".project:nth-child(6) .project__description"),
+            $text7 = $(".project:nth-child(7) .project__description"),
             tl = new TimelineLite();
         tl.from($project1,1,{
-            y:1000,
+            y:500,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power4.easeOut
         })
+        .from($text1,0.8,{
+            y:-200,
+            autoAlpha:0,
+            ease: Power4.easeOut
+        },"-=0.5")
+        //////
         .from($project2,1,{
-            y:1000,
+            y:500,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
-        })
+        },"-=0.5")
+        .from($text2,0.8,{
+            y:-200,
+            autoAlpha:0,
+            ease: Power4.easeOut
+        },"-=0.5")
+        //////
         .from($project3,1,{
-            y:1000,
+            y:500,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
-        })
+        },"-=0.5")
+        .from($text3,0.8,{
+            y:-200,
+            autoAlpha:0,
+            ease: Power4.easeOut
+        },"-=0.5")
+        //////
         .from($project4,1,{
-            y:1000,
+            y:500,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
-        })
+        },"-=0.5")
+        .from($text4,0.8,{
+            y:-200,
+            autoAlpha:0,
+            ease: Power4.easeOut
+        },"-=0.5")
+        //////
         .from($project5,1,{
-            y:1000,
+            y:500,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
-        })
+        },"-=0.5")
+        .from($text5,0.8,{
+            y:-200,
+            autoAlpha:0,
+            ease: Power4.easeOut
+        },"-=0.5")
+        //////
         .from($project6,1,{
-            y:1000,
+            y:500,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
-        })
+        },"-=0.5")
+        .from($text6,0.8,{
+            y:-200,
+            autoAlpha:0,
+            ease: Power4.easeOut
+        },"-=0.5")
+        //////
         .from($project7,1,{
-            y:1000,
+            y:500,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
-        });
+        },"-=0.5")
+        .from($text7,0.8,{
+            y:-200,
+            autoAlpha:0,
+            ease: Power4.easeOut
+        },"-=0.5");
         
         
         
@@ -225,13 +273,44 @@ $(document).ready(function(){
     };
     
     function aboutPageTimeLine(){
+        
         var $photo = $(".about .photo"),
             $h1 = $(".about__intro h1"),
             $h3 = $(".about__intro h3"),
+            $intro = $(".about__intro"),
             $intro__p = $(".about__intro p"),
             $skills = $(".about__skills"),
             $aboutThisSite = $(".about__about-this-site"),
             tl = new TimelineLite();
+        function hideIntro(){
+            $intro.css("visibility","hidden");
+        };
+        function showIntro(){
+            $intro.css("visibility","visible");
+        };
+        function introTimeLine(){
+            var scroll = $(window).scrollTop();
+            if(scroll >=160){
+                $(window).off("scroll");
+                showIntro();
+                var tl = new TimelineLite();
+                tl.from($h1,0.5,{
+                    x:50,
+                    autoAlpha:0,
+                })
+                .from($h3,0.3, {
+                    y:80,
+                    autoAlpha:0,
+                    ease: Power2.easeout
+                },"-=0.2")
+                .from($intro__p,0.3,{
+                    y:80,
+                    autoAlpha:0,
+                    ease: Power2.easeout
+                },"-=0.1")
+            }
+        };
+        hideIntro();
         tl.from($social1,1,{
             x:-200,
             rotation: 480,
@@ -257,20 +336,6 @@ $(document).ready(function(){
            autoAlpha:0,
            ease: Power2.easeOut
         },"-=0.55")
-        .from($h1,0.5,{
-            x:50,
-            autoAlpha:0,
-        },"-=0.45")
-        .from($h3,0.5, {
-            y:80,
-            autoAlpha:0,
-            ease: Power2.easeout
-        },"-=0.45")
-        .from($intro__p,0.5,{
-            y:80,
-            autoAlpha:0,
-            ease: Power2.easeout
-        },"-=0.45")
         .from($skills,0.5,{
             y:80,
             autoAlpha:0,
@@ -280,7 +345,8 @@ $(document).ready(function(){
             y:80,
             autoAlpha:0,
             ease: Power2.easeout
-        },"-=0.1")
+        },"-=0.1");
+        $(window).scroll(introTimeLine);
     };
     
     function contactPageTimeLine(){
@@ -339,23 +405,23 @@ $(document).ready(function(){
     var $navLogo = $(".nav-bar__logo");
     var $navBtnClicked = false;
         $navBtn.click(function(){
-        function highlightCurrentPage(){
-            updateCurrentPage();
-            allNavLinks.forEach(function(link){
-                var thisPage = link.attr("class");
-                var match = thisPage.search(currentPage);
-                if(match !== -1){
-                    setOutline(link.parent());
-                }else {
-                    removeOutLine(link.parent());
-                }
-            })
-        };
-        animateNavBtn();
-        $navPage.stop(true,true).fadeToggle();
-        toggleNavPageTimeLine();
-        highlightCurrentPage();
-        toggleBodyScrolling();
+            function highlightCurrentPage(){
+                updateCurrentPage(); allNavLinks.forEach(function(link){
+                    var thisPage = link.attr("class");
+                    var match = thisPage.search(currentPage);
+                    if(match !== -1){
+                        setOutline(link.parent());
+                    }else {
+                        removeOutLine(link.parent());
+                    }
+                })
+            };
+            animateNavBtn(); $navPage.stop(true,true).fadeToggle();
+            
+
+            toggleNavPageTimeLine();
+            highlightCurrentPage();
+            toggleBodyScrolling();
     })
     
     /****************************************

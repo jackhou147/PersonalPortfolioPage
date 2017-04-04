@@ -181,33 +181,6 @@ body {
     margin-top: 0;
 }
 
-/*.nav-bar__btn:nth-child(1){
-    transition: transform 3s linear;
-}
-
-.line1-animation {
-    transform: rotate(45deg);
-    transform-origin: top left;
-}
-
-.nav-bar__btn:nth-child(3){
-    transition: transform 3s linear;
-}
-
-.line3-animation {
-    transform: rotate(-45deg);
-    transform-origin: top left;
-}
-
-.nav-bar__btn:nth-child(2){
-    transition: transform 3s linear;
-}
-
-.line2-animation {
-    visibility: hidden;
-}*/
-
-
 /****************************************
 ****************HOME*********************
 *****************************************/
@@ -226,7 +199,6 @@ body {
 .project{
     width: 80vw;
     height: 120vw;
-    position: relative;
     margin-top: 5%;
     margin-bottom: 5%;
     display: flex;
@@ -264,7 +236,7 @@ body {
     height: 90vw;
     border-radius: 25px;
     overflow: hidden;
-    margin-bottom: 5%;
+    margin: 5%;
 }
 
 .about__photo img {
