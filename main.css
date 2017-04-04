@@ -223,9 +223,10 @@ body {
 *****************************************/
 
 
-.project {
+.project{
     width: 80vw;
     height: 120vw;
+    position: relative;
     margin-top: 5%;
     margin-bottom: 5%;
     display: flex;
@@ -247,6 +248,7 @@ body {
 .project__description {
     width: 80%;
     height: 20%;
+    bottom: 0;
     line-height: 0.5;
     border: 1px dashed red;
 }

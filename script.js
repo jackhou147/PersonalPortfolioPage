@@ -152,19 +152,19 @@ $(document).ready(function(){
     
     function portPageTimeLine(){
         var $project1 = 
-            $(".portfolio .project__pic:nth-child(1)"),
+            $(".project:nth-child(1) .project__pic"),
             $project2 = 
-            $(".portfolio .project__pic:nth-child(2)"),
+            $(".project:nth-child(2) .project__pic"),
             $project3 = 
-            $(".portfolio project__pic:nth-child(3)"),
+            $(".project:nth-child(3) .project__pic"),
             $project4 = 
-            $(".portfolio project__pic:nth-child(4)"),
+            $(".project:nth-child(4) .project__pic"),
             $project5 = 
-            $(".portfolio project__pic:nth-child(5)"),
+            $(".project:nth-child(5) .project__pic"),
             $project6 = 
-            $(".portfolio project__pic:nth-child(6)"),
+            $(".project:nth-child(6) .project__pic"),
             $project7 = 
-            $(".portfolio project__pic:nth-child(7)"),
+            $(".project:nth-child(7) .project__pic"),
             tl = new TimelineLite();
         tl.from($project1,1,{
             y:1000,
@@ -173,48 +173,53 @@ $(document).ready(function(){
             autoAlpha:0,
             ease: Power4.easeOut
         })
-        .from($project2,2.5,{
-            y:1000,
-            width: 5,
-            height:5,
-            autoAlpha:0,
-            ease: Power2.easeOut
-        },"+=5")
-        .from($project3,2.5,{
+        .from($project2,1,{
             y:1000,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
         })
-        .from($project4,2.5,{
+        .from($project3,1,{
             y:1000,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
         })
-        .from($project5,2.5,{
+        .from($project4,1,{
             y:1000,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
         })
-        .from($project6,2.5,{
+        .from($project5,1,{
             y:1000,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
         })
-        .from($project7,2.5,{
+        .from($project6,1,{
+            y:1000,
+            width: 5,
+            height:5,
+            autoAlpha:0,
+            ease: Power2.easeOut
+        })
+        .from($project7,1,{
             y:1000,
             width: 5,
             height:5,
             autoAlpha:0,
             ease: Power2.easeOut
         });
+        
+        
+        
+        
+        
         
         
     };
