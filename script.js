@@ -17,6 +17,8 @@ $(document).ready(function(){
     var $navLink2 = $(".nav-page__links .outline:nth-child(2)");
     var $navLink3 = $(".nav-page__links .outline:nth-child(3)");
     var $navLink4 = $(".nav-page__links .outline:nth-child(4)");
+    var $navHr = $(".nav-page hr");
+    var $navFooter = $(".nav-page__footer");
     var allPages = [$(".home"),$(".portfolio"),$(".about"),$(".contact")];
     var allNavLinks = [$homeLink,$portfolioLink,$aboutLink,$contactLink];
     var currentPage; //string of current page name
@@ -103,25 +105,28 @@ $(document).ready(function(){
     /*****timelines****/
     var navPageTimeLine = new TimelineLite({reversed:true});
     navPageTimeLine.from($navLink1,0.5,{
-                        y:30,
-                        autoAlpha:0,
-                        ease: Power2.easeOut
-                    })
+        y:30,
+        autoAlpha:0,
+        ease: Power2.easeOut            
+    })
     .from($navLink2,0.5,{
-    y:30,
-    autoAlpha:0,
-    ease: Power2.easeOut
-},"-=0.35")
+        y:30,
+        autoAlpha:0,
+        ease: Power2.easeOut
+    },"-=0.2")
     .from($navLink3,0.5,{
-    y:30,
-    autoAlpha:0,
-    ease: Power2.easeOut
-},"-=0.35")
+        y:30,
+        autoAlpha:0,
+        ease: Power2.easeOut
+    },"-=0.25")
     .from($navLink4,0.5,{
-                        y:30,
-                        autoAlpha:0,
-                        ease: Power2.easeOut
-                    },"-=0.35");
+        y:30,
+        autoAlpha:0,
+        ease: Power2.easeOut
+    },"-=0.3")
+    .from([$navFooter,$navHr],0.5,{
+        autoAlpha:0
+    },"-=0.3");
     function toggleNavPageTimeLine(){
         navPageTimeLine.reversed()?navPageTimeLine.timeScale(1.5).play():
         navPageTimeLine.timeScale(4).reverse();
@@ -149,6 +154,7 @@ $(document).ready(function(){
         },"-=0.7");
         
     };
+    
     
     function portPageTimeLine(){
         var $project1 = 
