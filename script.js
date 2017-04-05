@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    homePageTimeLine();
     /****************************************
     ***************REUSABLES*****************
     *****************************************/
@@ -155,6 +156,41 @@ $(document).ready(function(){
         
     };
     
+    function homePageReverseTimeLine(){
+        var $h1 = $(".home h1"),
+            $h2 = $(".home h2"),
+            $btn = $(".home .action-btn"),
+            $btnText = $(".home .action-btn__text"),
+            tl = new TimelineLite();
+        tl.to($h1,0.35,{
+            y:-150,
+            autoAlpha:0,
+            ease:Power4.easeOut
+        })
+        .to($h2,0.35,{
+            y:-150,
+            autoAlpha:0,
+            ease:Power4.easeOut
+        },"-=0.25")
+        .to($btnText,0.35,{
+            autoAlpha:0
+        },"-=0.35")
+        .to($btn,0.3,{
+            rotation: 90,
+            width: 40
+        },"-=0.2")
+        .to($btn,0.2,{
+            y:200,
+            autoAlpha:0,
+            ease: Power4.easeOut
+        });
+        tl.duration(1.5).play();
+        $navBtn.click(function(){
+            tl.set(
+                [$h1,$h2,$btn,$btnText],{clearProps:"all"}
+            );
+        })
+    }
     
     function portPageTimeLine(){
         var $project1 = 
@@ -424,7 +460,7 @@ $(document).ready(function(){
             };
             animateNavBtn(); $navPage.stop(true,true).fadeToggle();
             
-
+            
             toggleNavPageTimeLine();
             highlightCurrentPage();
             toggleBodyScrolling();
@@ -435,25 +471,43 @@ $(document).ready(function(){
     *****************************************/
     
     allNavLinks.forEach(function(link){
-        var thisPage = link.attr("class").replace("nav-page__","").replace("-link","");
+        var thisPage;
+        function getThisPage(){
+             thisPage = link.attr("class").replace("nav-page__","").replace("-link","");
+        };
+        getThisPage();
         link.parent().click(function(){
-            animateNavBtn(); 
-            toggleNavPageTimeLine();
-            setTimeout(function(){
-                $navPage.stop(true,true).fadeOut();
+            function next(){
                 toThisPage(thisPage);
                 updateCurrentPage();
                 toggleBodyScrolling();
-            },300);
-        });
-        link.parent().hover(function(){
-            setOutline(link.parent());
-        },function(){
-            if(thisPage !== currentPage){
-                removeOutLine(link.parent());
+            };
+            animateNavBtn(); 
+            toggleNavPageTimeLine();
+            $navPage.stop(true,true).fadeOut();
+            if(
+                currentPage == "home" && 
+                thisPage !== "home"
+            ){
+                setTimeout(function(){
+                    homePageReverseTimeLine();
+                    setTimeout(next,1500);
+                },400)
+            }
+            else {
+                setTimeout(next,300);
             }
         });
-    });
+        link.parent().hover(
+            function(){
+                setOutline(link.parent());
+            },
+            function(){
+                if(thisPage !== currentPage){
+                removeOutLine(link.parent());
+            }
+            });
+        });
     
     /****************************************
     ****************HOME*********************
@@ -461,22 +515,21 @@ $(document).ready(function(){
     $(".home .action-btn").click(function(){
         toThisPage("portfolio");
     });
-    homePageTimeLine();
     
     /****************************************
     ***************ABOUT*********************
     *****************************************/
     var $social = $(".social-media .logo-btn");
     $social.hover(function(){
-        TweenLite.to($(this),0.2,{
-            rotation: 360
-        })
-    },
-                  function(){
-        TweenLite.to($(this),0.2,{
+            TweenLite.to($(this),0.2,{
+                rotation: 360
+            })
+        },function(){
+            TweenLite.to($(this),0.2,{
             rotation:-360
         })
-    });
+        }
+    );
     
 
     
