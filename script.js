@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    $(".loader-page").delay(800).fadeOut();
+    setTimeout(function(){
     homePageTimeLine();
     /****************************************
     ***************REUSABLES*****************
@@ -20,8 +22,12 @@ $(document).ready(function(){
     var $navLink4 = $(".nav-page__links .outline:nth-child(4)");
     var $navHr = $(".nav-page hr");
     var $navFooter = $(".nav-page__footer");
-    var allPages = [$(".home"),$(".portfolio"),$(".about"),$(".contact")];
-    var allNavLinks = [$homeLink,$portfolioLink,$aboutLink,$contactLink];
+    var allPages = [
+        $(".home"),$(".portfolio"),$(".about"),$(".contact")
+    ];
+    var allNavLinks = [
+        $homeLink,$portfolioLink,$aboutLink,$contactLink
+    ];
     var currentPage; //string of current page name
     function toThisPage(pageClass){
         TweenLite.to(window,0.3,{
@@ -446,7 +452,8 @@ $(document).ready(function(){
     var $navBtn = $(".nav-bar__btn");
     var $navLogo = $(".nav-bar__logo");
     var $navBtnClicked = false;
-        $navBtn.click(function(){
+    $navBtn.click(
+        function(){
             function highlightCurrentPage(){
                 updateCurrentPage(); allNavLinks.forEach(function(link){
                     var thisPage = link.attr("class");
@@ -464,7 +471,8 @@ $(document).ready(function(){
             toggleNavPageTimeLine();
             highlightCurrentPage();
             toggleBodyScrolling();
-    })
+        }
+    )
     
     /****************************************
     ****************NAVPAGE********************
@@ -512,34 +520,27 @@ $(document).ready(function(){
     /****************************************
     ****************HOME*********************
     *****************************************/
-    $(".home .action-btn").click(function(){
+    $(".home .action-btn").click(
+        function(){
         toThisPage("portfolio");
-    });
+    }
+    );
     
     /****************************************
     ***************ABOUT*********************
     *****************************************/
     var $social = $(".social-media .logo-btn");
-    $social.hover(function(){
+    $social.hover(
+        function(){
             TweenLite.to($(this),0.2,{
                 rotation: 360
             })
-        },function(){
+        },
+        function(){
             TweenLite.to($(this),0.2,{
             rotation:-360
         })
         }
     );
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    },850);
 })
