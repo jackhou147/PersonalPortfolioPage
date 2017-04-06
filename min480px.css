@@ -1,0 +1,41 @@
+/****************************************
+****************ABOUT********************
+*****************************************/
+
+
+/***********/
+
+.about__photo-social {
+    width: 45vw;
+    float: right;
+}
+
+.about__photo {
+    width: 40vw;
+    height: 40vw;
+}
+
+.social-media{
+    width: 40vw;
+}
+
+/****************************************
+****************CONTACT******************
+*****************************************/
+.contact__location-social {
+    display: flex;
+    flex-direction: row;
+}
+
+.contact__location,
+.contact .social-media{
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.contact .social-media {
+    margin: 2% 0 0 10%;
+}
+
+
+

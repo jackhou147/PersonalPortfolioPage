@@ -260,34 +260,36 @@ body {
 ****************ABOUT********************
 *****************************************/
 
-/***********/
+.about__photo-social-intro {
+    align-items: center;
+    border: 1px dashed red;
+}
 
+/***********/
 .about__photo {
     width: 80vw;
     height: 90vw;
     border-radius: 25px;
     overflow: hidden;
-    margin: 5%;
+    margin: 5% auto;
 }
 
 .about__photo img {
     width: 100%;
     height: 100%;
 }
-/***********/
 
+/***********/
 .social-media{
     width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: auto;
     border: 1px dashed red;
 }
 
-
-
 /***********/
-
 .about__intro {
     width: 100%;
 }
@@ -308,10 +310,20 @@ body {
 .contact__intro,
 .contact .social-media,
 .contact__location,
-.contact form{
+.contact form,
+.contact__location-social{
     width: 100%;
     margin-bottom: 5%;
 }
+
+.contact__location-social{
+     border: 1px dashed red;   
+}
+
+.contact__location {
+    width: 100px;
+}
+
 
 .contact form {
     margin-top: 5%;
