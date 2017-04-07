@@ -1,7 +1,11 @@
 $(document).ready(function(){
-    $(".loader-page").delay(800).fadeOut();
+    (function fadeOutLoaderPage(){
+        $(".loader-page").delay(800).fadeOut();
+    })();
     setTimeout(function(){
         homePageTimeLine();
+        toggleBodyScrollingY().noScr();
+        circleAni().append();
         /****************************************
         ***************REUSABLES*****************
         *****************************************/
@@ -38,13 +42,21 @@ $(document).ready(function(){
                     //show this page
                     page.removeClass("none-display");
                     if(pageClass == "home"){
+                        circleAni().append();
+                        toggleBodyScrollingY().noScr();
                         homePageTimeLine();
-                    }else if(pageClass == "portfolio"){
-                        portPageTimeLine();
-                    }else if(pageClass == "about"){
-                        aboutPageTimeLine();
-                    }else if(pageClass == "contact"){
-                        contactPageTimeLine();
+                    }else{
+                        circleAni().remove();
+                        toggleBodyScrollingY().scr();
+                        if(pageClass == "portfolio"){
+                            portPageTimeLine();
+                        }
+                        else if(pageClass == "about"){
+                            aboutPageTimeLine();
+                        }
+                        else if(pageClass == "contact"){
+                            contactPageTimeLine();
+                        }
                     }
                 }else {
                     //hide this page
@@ -105,8 +117,30 @@ $(document).ready(function(){
                 $navBtnClicked = !$navBtnClicked;
 
             };
-        function toggleBodyScrolling(){
-            $("body").toggleClass("none-scroll");
+        function toggleBodyScrollingX(){
+            $("body").toggleClass("none-scroll-x");
+        };
+        function toggleBodyScrollingY(){
+            return {
+                scr: function(){
+                    $("body").removeClass("none-scroll-y");
+                },
+                noScr: function(){
+                    $("body").addClass("none-scroll-y");
+                }
+            }
+            
+        };
+        function circleAni(){
+            return {
+                append: function(){
+                    $("body").append('<div class="circleAni"></div>');
+                },
+                remove: function(){
+                    $('.circleAni').remove();
+                }
+            }
+            
         };
         /*****timelines****/
         var navPageTimeLine = new TimelineLite({reversed:true});
@@ -115,24 +149,24 @@ $(document).ready(function(){
             autoAlpha:0,
             ease: Power2.easeOut            
         })
-        .from($navLink2,0.5,{
-            y:30,
-            autoAlpha:0,
-            ease: Power2.easeOut
-        },"-=0.2")
-        .from($navLink3,0.5,{
-            y:30,
-            autoAlpha:0,
-            ease: Power2.easeOut
-        },"-=0.25")
-        .from($navLink4,0.5,{
-            y:30,
-            autoAlpha:0,
-            ease: Power2.easeOut
-        },"-=0.3")
-        .from([$navFooter,$navHr],0.5,{
-            autoAlpha:0
-        },"-=0.3");
+                        .from($navLink2,0.5,{
+                            y:30,
+                            autoAlpha:0,
+                            ease: Power2.easeOut
+                        },"-=0.2")
+                        .from($navLink3,0.5,{
+                            y:30,
+                            autoAlpha:0,
+                            ease: Power2.easeOut
+                        },"-=0.25")
+                        .from($navLink4,0.5,{
+                            y:30,
+                            autoAlpha:0,
+                            ease: Power2.easeOut
+                        },"-=0.3")
+                        .from([$navFooter,$navHr],0.5,{
+                            autoAlpha:0
+                        },"-=0.3");
         function toggleNavPageTimeLine(){
             navPageTimeLine.reversed()?navPageTimeLine.timeScale(1.5).play():
             navPageTimeLine.timeScale(4).reverse();
@@ -410,7 +444,7 @@ $(document).ready(function(){
                     introTimeLine($(window).scrollTop());
                 });
             }
-                    };
+        };
         function contactPageTimeLine(){
             var $h2 = $(".contact h2"),
                 $p = $(".contact p"),
@@ -435,21 +469,25 @@ $(document).ready(function(){
             .from($social1,1,{
                 x:-250,
                 rotation: 480,
+                autoAlpha:0,
                 ease: Power3.easeOut
             },1.2)
             .from($social2,1,{
                 x:-200,
                 rotation: 480,
+                autoAlpha:0,
                 ease: Power3.easeOut
             },1.2)
             .from($social3,1,{
                 x:200,
                 rotation: 480,
+                autoAlpha:0,
                 ease: Power3.easeOut
             },1.2)
             .from($social4,1,{
                 x:250,
                 rotation:480,
+                autoAlpha:0,
                 ease: Power3.easeOut
             },1.2)
             .from($form,0.5,{
@@ -457,7 +495,7 @@ $(document).ready(function(){
                 autoAlpha:0,
                 ease: Power3.easeOut
             },"-=0.6")  
-        }
+        };
 
         /****************************************
         ****************NAV BAR******************
@@ -480,11 +518,9 @@ $(document).ready(function(){
                     })
                 };
                 animateNavBtn(); $navPage.stop(true,true).fadeToggle();
-
-
                 toggleNavPageTimeLine();
                 highlightCurrentPage();
-                toggleBodyScrolling();
+                toggleBodyScrollingX();
             }
         )
 
@@ -502,7 +538,7 @@ $(document).ready(function(){
                 function next(){
                     toThisPage(thisPage);
                     updateCurrentPage();
-                    toggleBodyScrolling();
+                    toggleBodyScrollingX();
                 };
                 animateNavBtn(); 
                 toggleNavPageTimeLine();

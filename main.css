@@ -29,8 +29,12 @@ body {
 
 
 
-.none-scroll {
+.none-scroll-x {
     overflow: hidden;
+}
+
+.none-scroll-y {
+    overflow-y: hidden;
 }
 
 
@@ -107,7 +111,7 @@ body {
 .subtitle-with-logo .logo-btn,
 .subtitle-with-logo__subtitle{
     position: absolute;
-    left: 5px
+    left: 5px;
 }
 
 .subtitle-with-logo__subtitle {
@@ -215,11 +219,18 @@ body {
 /****************************************
 ****************HOME*********************
 *****************************************/
+.circleAni {
+    display: none;
+}
 .home {
     height: calc(100% - 56px);
     align-items: center ;
     background-color: dimgrey;
     text-align: center;
+}
+
+.home .action-btn {
+    z-index: 5;
 }
 
 /****************************************
