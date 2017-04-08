@@ -517,7 +517,8 @@ $(document).ready(function(){
                         }
                     })
                 };
-                animateNavBtn(); $navPage.stop(true,true).fadeToggle();
+                animateNavBtn(); 
+                $navPage.stop(true,true).fadeToggle();
                 toggleNavPageTimeLine();
                 highlightCurrentPage();
                 toggleBodyScrollingX();

@@ -221,6 +221,7 @@ body {
 *****************************************/
 .circleAni {
     display: none;
+    margin: 0;
 }
 .home {
     height: calc(100% - 56px);
