@@ -251,97 +251,322 @@ $(document).ready(function(){
                 $text6 = $(".project:nth-child(6) .project__description"),
                 $text7 = $(".project:nth-child(7) .project__description"),
                 tl = new TimelineLite();
-            tl.from($project1,1,{
-                y:500,
-                width: 5,
-                height:5,
-                autoAlpha:0,
-                ease: Power4.easeOut
-            })
-            .from($text1,0.8,{
-                y:-200,
-                autoAlpha:0,
-                ease: Power4.easeOut
-            },"-=0.5")
-            //////
-            .from($project2,1,{
-                y:500,
-                width: 5,
-                height:5,
-                autoAlpha:0,
-                ease: Power2.easeOut
-            },"-=0.5")
-            .from($text2,0.8,{
-                y:-200,
-                autoAlpha:0,
-                ease: Power4.easeOut
-            },"-=0.5")
-            //////
-            .from($project3,1,{
-                y:500,
-                width: 5,
-                height:5,
-                autoAlpha:0,
-                ease: Power2.easeOut
-            },"-=0.5")
-            .from($text3,0.8,{
-                y:-200,
-                autoAlpha:0,
-                ease: Power4.easeOut
-            },"-=0.5")
-            //////
-            .from($project4,1,{
-                y:500,
-                width: 5,
-                height:5,
-                autoAlpha:0,
-                ease: Power2.easeOut
-            },"-=0.5")
-            .from($text4,0.8,{
-                y:-200,
-                autoAlpha:0,
-                ease: Power4.easeOut
-            },"-=0.5")
-            //////
-            .from($project5,1,{
-                y:500,
-                width: 5,
-                height:5,
-                autoAlpha:0,
-                ease: Power2.easeOut
-            },"-=0.5")
-            .from($text5,0.8,{
-                y:-200,
-                autoAlpha:0,
-                ease: Power4.easeOut
-            },"-=0.5")
-            //////
-            .from($project6,1,{
-                y:500,
-                width: 5,
-                height:5,
-                autoAlpha:0,
-                ease: Power2.easeOut
-            },"-=0.5")
-            .from($text6,0.8,{
-                y:-200,
-                autoAlpha:0,
-                ease: Power4.easeOut
-            },"-=0.5")
-            //////
-            .from($project7,1,{
-                y:500,
-                width: 5,
-                height:5,
-                autoAlpha:0,
-                ease: Power2.easeOut
-            },"-=0.5")
-            .from($text7,0.8,{
-                y:-200,
-                autoAlpha:0,
-                ease: Power4.easeOut
-            },"-=0.5");
+            if(checkWindowSize() == "768px"){
+                tl.fromTo($project1,0.8,{
+                    css: {
+                        width: "5px",
+                        height:"5px",
+                        opacity: "0",
+                        top: "40vw",
+                        right: "20vw"
+                    },
+                    ease:Power2.easeOut
+                },{
+                    css: {
+                        width: "35vw",
+                        height:"35vw",
+                        opacity: "1",
+                        top: "0"
+                    },
+                    ease:Power2.easeOut
+                })
+                .to($project1,0.4,{
+                    css: {
+                        right: "0"
+                    }
+                },"+=0.2")
+                .from($text1,0.4,{
+                    css: {
+                        left:"20vw",
+                        opacity:"0"
+                    }
+                },1.35)
+                /*////////////////////
+                 ////////////////////
+                 */////////////////////
+                .fromTo($project2,0.8,{
+                    css: {
+                        width: "5px",
+                        height:"5px",
+                        opacity: "0",
+                        top: "40vw",
+                        left: "20vw"
+                    },
+                    ease:Power2.easeOut
+                },{
+                    css: {
+                        width: "35vw",
+                        height:"35vw",
+                        opacity: "1",
+                        top: "0"
+                    },
+                    ease:Power2.easeOut
+                })
+                .to($project2,0.4,{
+                    css: {
+                        left: "0"
+                    }
+                },"+=0.2")
+                .from($text2,0.4,{
+                    css: {
+                        right:"20vw",
+                        opacity:"0"
+                    }
+                },3)
+                /*////////////////////
+                 ////////////////////
+                 */////////////////////
+                .fromTo($project3,0.8,{
+                    css: {
+                        width: "5px",
+                        height:"5px",
+                        opacity: "0",
+                        top: "40vw",
+                        right: "20vw"
+                    },
+                    ease:Power2.easeOut
+                },{
+                    css: {
+                        width: "35vw",
+                        height:"35vw",
+                        opacity: "1",
+                        top: "0"
+                    },
+                    ease:Power2.easeOut
+                })
+                .to($project3,0.4,{
+                    css: {
+                        right: "0"
+                    }
+                },"+=0.2")
+                .from($text3,0.4,{
+                    css: {
+                        left:"20vw",
+                        opacity:"0"
+                    }
+                },5)
+                /*////////////////////
+                 ////////////////////
+                 */////////////////////
+                .fromTo($project4,0.8,{
+                    css: {
+                        width: "5px",
+                        height:"5px",
+                        opacity: "0",
+                        top: "40vw",
+                        left: "20vw"
+                    },
+                    ease:Power2.easeOut
+                },{
+                    css: {
+                        width: "35vw",
+                        height:"35vw",
+                        opacity: "1",
+                        top: "0"
+                    },
+                    ease:Power2.easeOut
+                })
+                .to($project4,0.4,{
+                    css: {
+                        left: "0"
+                    }
+                },"+=0.2")
+                .from($text4,0.4,{
+                    css: {
+                        right:"20vw",
+                        opacity:"0"
+                    }
+                },7)
+                /*////////////////////
+                 ////////////////////
+                 */////////////////////
+                .fromTo($project5,0.8,{
+                    css: {
+                        width: "5px",
+                        height:"5px",
+                        opacity: "0",
+                        top: "40vw",
+                        right: "20vw"
+                    },
+                    ease:Power2.easeOut
+                },{
+                    css: {
+                        width: "35vw",
+                        height:"35vw",
+                        opacity: "1",
+                        top: "0"
+                    },
+                    ease:Power2.easeOut
+                })
+                .to($project5,0.4,{
+                    css: {
+                        right: "0"
+                    }
+                },"+=0.2")
+                .from($text5,0.4,{
+                    css: {
+                        left:"20vw",
+                        opacity:"0"
+                    }
+                },9)
+                /*////////////////////
+                 ////////////////////
+                 */////////////////////
+                .fromTo($project6,0.8,{
+                    css: {
+                        width: "5px",
+                        height:"5px",
+                        opacity: "0",
+                        top: "40vw",
+                        left: "20vw"
+                    },
+                    ease:Power2.easeOut
+                },{
+                    css: {
+                        width: "35vw",
+                        height:"35vw",
+                        opacity: "1",
+                        top: "0"
+                    },
+                    ease:Power2.easeOut
+                })
+                .to($project6,0.4,{
+                    css: {
+                        left: "0"
+                    }
+                },"+=0.2")
+                .from($text6,0.4,{
+                    css: {
+                        right:"20vw",
+                        opacity:"0"
+                    }
+                },11)
+                /*////////////////////
+                 ////////////////////
+                 */////////////////////
+                .fromTo($project7,0.8,{
+                    css: {
+                        width: "5px",
+                        height:"5px",
+                        opacity: "0",
+                        top: "40vw",
+                        right: "20vw"
+                    },
+                    ease:Power2.easeOut
+                },{
+                    css: {
+                        width: "35vw",
+                        height:"35vw",
+                        opacity: "1",
+                        top: "0"
+                    },
+                    ease:Power2.easeOut
+                })
+                .to($project7,0.4,{
+                    css: {
+                        right: "0"
+                    }
+                },"+=0.2")
+                .from($text7,0.4,{
+                    css: {
+                        left:"20vw",
+                        opacity:"0"
+                    }
+                },13)
+            }else {
+                tl.from($project1,1,{
+                    y:500,
+                    width: 5,
+                    height:5,
+                    autoAlpha:0,
+                    ease: Power4.easeOut
+                })
+                .from($text1,0.8,{
+                        y:-200,
+                        autoAlpha:0,
+                        ease: Power4.easeOut
+                    },"-=0.5")
+                    //////
+                .from($project2,1,{
+                        y:500,
+                        width: 5,
+                        height:5,
+                        autoAlpha:0,
+                        ease: Power2.easeOut
+                    },"-=0.5")
+                .from($text2,0.8,{
+                        y:-200,
+                        autoAlpha:0,
+                        ease: Power4.easeOut
+                    },"-=0.5")
+                    //////
+                .from($project3,1,{
+                        y:500,
+                        width: 5,
+                        height:5,
+                        autoAlpha:0,
+                        ease: Power2.easeOut
+                    },"-=0.5")
+                .from($text3,0.8,{
+                        y:-200,
+                        autoAlpha:0,
+                        ease: Power4.easeOut
+                    },"-=0.5")
+                //////
+                .from($project4,1,{
+                        y:500,
+                        width: 5,
+                        height:5,
+                        autoAlpha:0,
+                        ease: Power2.easeOut
+                    },"-=0.5")
+                .from($text4,0.8,{
+                        y:-200,
+                        autoAlpha:0,
+                        ease: Power4.easeOut
+                    },"-=0.5")
+                    //////
+                .from($project5,1,{
+                        y:500,
+                        width: 5,
+                        height:5,
+                        autoAlpha:0,
+                        ease: Power2.easeOut
+                    },"-=0.5")
+                .from($text5,0.8,{
+                        y:-200,
+                        autoAlpha:0,
+                        ease: Power4.easeOut
+                    },"-=0.5")
+                    //////
+                .from($project6,1,{
+                        y:500,
+                        width: 5,
+                        height:5,
+                        autoAlpha:0,
+                        ease: Power2.easeOut
+                    },"-=0.5")
+                .from($text6,0.8,{
+                        y:-200,
+                        autoAlpha:0,
+                        ease: Power4.easeOut
+                    },"-=0.5")
+                    //////
+                .from($project7,1,{
+                        y:500,
+                        width: 5,
+                        height:5,
+                        autoAlpha:0,
+                        ease: Power2.easeOut
+                    },"-=0.5")
+                .from($text7,0.8,{
+                        y:-200,
+                        autoAlpha:0,
+                        ease: Power4.easeOut
+                    },"-=0.5");
 
+            }
+            
 
 
 
@@ -599,7 +824,10 @@ $(document).ready(function(){
         *****************************************/
         function checkWindowSize(){
             var min480 = window.matchMedia('(min-width: 480px)');
-            if(min480.matches){
+            var min768 = window.matchMedia('(min-width: 768px)');
+            if(min768.matches){
+                return "768px"
+            }else if(min480.matches){
                 return "480px"
             }
         }

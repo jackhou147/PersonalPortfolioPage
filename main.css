@@ -253,14 +253,16 @@ body {
 }
 
 .project__pic {
-    width: 80%;
-    height: 60%;
+    width: 45vw;
+    height: 45vw;
+    position: relative ;
     margin-bottom: 10%;
     border-radius: 15%;
     border: 1px dashed red;
 }
 
 .project__description {
+    position: relative;
     width: 80%;
     height: 20%;
     bottom: 0;

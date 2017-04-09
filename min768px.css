@@ -59,6 +59,32 @@ body{
 }
 
 /****************************************
+****************PORTFOLIO****************
+*****************************************/
+.project {
+    height: 50vw ;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+
+.project__pic {
+    width: 35vw;
+    height: 35vw;
+    /*right: 20vw;
+*/}
+
+.project__description{
+    width: 40vw;
+    height: 15vw;
+}
+
+.project2,
+.project4,
+.project6{
+    flex-direction: row;
+}
+
+/****************************************
 ****************ABOUT********************
 *****************************************/
 .about {
