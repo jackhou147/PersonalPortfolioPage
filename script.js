@@ -251,7 +251,7 @@ $(document).ready(function(){
                 $text6 = $(".project:nth-child(6) .project__description"),
                 $text7 = $(".project:nth-child(7) .project__description"),
                 tl = new TimelineLite();
-            if(checkWindowSize() == "768px"){
+            if(checkWindowSize()["768"]){
                 tl.fromTo($project1,0.8,{
                     css: {
                         width: "5px",
@@ -608,7 +608,7 @@ $(document).ready(function(){
                         ease: Power2.easeout
                     },"-=0.1")
                 }
-                if(scrollTop){
+                if(typeof scrollTop !== "undefined"){
                     if(scrollTop >= 160){
                         $(window).off("scroll");
                         timeLine();
@@ -659,10 +659,9 @@ $(document).ready(function(){
             }
 
             hideIntro();
-            if(checkWindowSize() == "480px"){
+            if(checkWindowSize()["480"]){
                 introTimeLine();
                 restOfTimeLine(500);
-                
             }else {
                 restOfTimeLine();
                 $(window).scroll(function(){
@@ -825,11 +824,17 @@ $(document).ready(function(){
         function checkWindowSize(){
             var min480 = window.matchMedia('(min-width: 480px)');
             var min768 = window.matchMedia('(min-width: 768px)');
-            if(min768.matches){
-                return "768px"
-            }else if(min480.matches){
-                return "480px"
-            }
+            var windowSize = {
+                "480": false,
+                "768":false
+            };
+            if(min480.matches){
+                windowSize["480"] = true;
+                if(min768.matches){
+                    windowSize["768"] = true;
+                }
+            };
+            return windowSize
         }
         
         

@@ -369,7 +369,7 @@ body {
 *****************************************/
 .nav-page {
     position: fixed;
-    z-index: 5;
+    z-index: 10;
     height: calc(100% - 56px);
     background: linear-gradient(to top, rgba(95, 104, 95,1),rgba(95, 104, 95,0.7));
 }
