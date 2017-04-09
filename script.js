@@ -5,7 +5,6 @@ $(document).ready(function(){
     setTimeout(function(){
         homePageTimeLine();
         toggleBodyScrollingY().noScr();
-        circleAni().append();
         /****************************************
         ***************REUSABLES*****************
         *****************************************/
@@ -42,11 +41,9 @@ $(document).ready(function(){
                     //show this page
                     page.removeClass("none-display");
                     if(pageClass == "home"){
-                        circleAni().append();
                         toggleBodyScrollingY().noScr();
                         homePageTimeLine();
                     }else{
-                        circleAni().remove();
                         toggleBodyScrollingY().scr();
                         if(pageClass == "portfolio"){
                             portPageTimeLine();
@@ -131,17 +128,6 @@ $(document).ready(function(){
             }
             
         };
-        function circleAni(){
-            return {
-                append: function(){
-                    $("body").append('<div class="circleAni"></div>');
-                },
-                remove: function(){
-                    $('.circleAni').remove();
-                }
-            }
-            
-        };
         /*****timelines****/
         var navPageTimeLine = new TimelineLite({reversed:true});
         navPageTimeLine.from($navLink1,0.5,{
@@ -149,24 +135,24 @@ $(document).ready(function(){
             autoAlpha:0,
             ease: Power2.easeOut            
         })
-                        .from($navLink2,0.5,{
-                            y:30,
-                            autoAlpha:0,
-                            ease: Power2.easeOut
-                        },"-=0.2")
-                        .from($navLink3,0.5,{
-                            y:30,
-                            autoAlpha:0,
-                            ease: Power2.easeOut
-                        },"-=0.25")
-                        .from($navLink4,0.5,{
-                            y:30,
-                            autoAlpha:0,
-                            ease: Power2.easeOut
-                        },"-=0.3")
-                        .from([$navFooter,$navHr],0.5,{
-                            autoAlpha:0
-                        },"-=0.3");
+            .from($navLink2,0.5,{
+                y:30,
+                autoAlpha:0,
+                ease: Power2.easeOut
+            },"-=0.2")
+            .from($navLink3,0.5,{
+                y:30,
+                autoAlpha:0,
+                ease: Power2.easeOut
+            },"-=0.25")
+            .from($navLink4,0.5,{
+                y:30,
+                autoAlpha:0,
+                ease: Power2.easeOut
+            },"-=0.3")
+            .from([$navFooter,$navHr],0.5,{
+                autoAlpha:0
+            },"-=0.3");
         function toggleNavPageTimeLine(){
             navPageTimeLine.reversed()?navPageTimeLine.timeScale(1.5).play():
             navPageTimeLine.timeScale(4).reverse();
@@ -618,24 +604,24 @@ $(document).ready(function(){
                 }
             };
             function restOfTimeLine(delay){
-                tl.from($social1,1,{
+                tl.from($social1,1.5,{
                     x:-200,
-                    rotation: 480,
+                    rotation: 1080,
                     ease: Power3.easeOut
                 },0)
-                .from($social2,1,{
+                .from($social2,1.5,{
                     x:-100,
-                    rotation: 480,
+                    rotation: 1080,
                     ease: Power3.easeOut
                 },0)
-                .from($social3,1,{
+                .from($social3,1.5,{
                     x:100,
-                    rotation: 480,
+                    rotation: 1080,
                     ease: Power3.easeOut
                 },0)
-                .from($social4,1,{
+                .from($social4,1.5,{
                     x:200,
-                    rotation:480,
+                    rotation:1080,
                     ease: Power3.easeOut
                 },0)
                 .from($photo,1,{
@@ -690,27 +676,27 @@ $(document).ready(function(){
                 autoAlpha:0,
                 ease: Power2.easeout
             })
-            .from($social1,1,{
+            .from($social1,1.5,{
                 x:-250,
-                rotation: 480,
+                rotation: 1080,
                 autoAlpha:0,
                 ease: Power3.easeOut
             },1.2)
-            .from($social2,1,{
+            .from($social2,1.5,{
                 x:-200,
-                rotation: 480,
+                rotation: 1080,
                 autoAlpha:0,
                 ease: Power3.easeOut
             },1.2)
-            .from($social3,1,{
+            .from($social3,1.5,{
                 x:200,
-                rotation: 480,
+                rotation: 1080,
                 autoAlpha:0,
                 ease: Power3.easeOut
             },1.2)
-            .from($social4,1,{
+            .from($social4,1.5,{
                 x:250,
-                rotation:480,
+                rotation:1080,
                 autoAlpha:0,
                 ease: Power3.easeOut
             },1.2)
@@ -797,8 +783,11 @@ $(document).ready(function(){
         *****************************************/
         $(".home .action-btn").click(
             function(){
-            toThisPage("portfolio");
-        }
+                homePageReverseTimeLine();
+                setTimeout(function(){
+                    toThisPage("portfolio");
+                },1500);
+            }
         );
 
         /****************************************
@@ -807,16 +796,49 @@ $(document).ready(function(){
         var $social = $(".social-media .logo-btn");
         $social.hover(
             function(){
-                TweenLite.to($(this),0.2,{
+                TweenLite.to($(this),0.3,{
                     rotation: 360
                 })
             },
             function(){
-                TweenLite.to($(this),0.2,{
-                rotation:-360
+                TweenLite.to($(this),0.3,{
+                rotation:0
             })
             }
         );
+        
+        /****************************************
+        ****************CONTACT********************
+        *****************************************/
+        function locationIconTimeLine(){
+            var $locationIcon = $(".location img");
+            var tl = new TimelineLite;
+            return {
+                play: function(){
+                    tl.to($locationIcon,0.1,{
+                        y:3
+                    })
+                    .to($locationIcon,0.2,{
+                        y:-8
+                    })
+                },
+                reverse: function(){
+                    tl.to($locationIcon,0.1,{
+                        y:-10
+                    })
+                    .to($locationIcon,0.2,{
+                        y:0
+                    })
+                }
+            }
+        }
+        
+        var $locationIconParent = $(".location");
+        $locationIconParent.hover(function(){
+            locationIconTimeLine().play();
+        },function(){
+            locationIconTimeLine().reverse();
+        })
         
         /****************************************
         *************MEDIA QURIES****************

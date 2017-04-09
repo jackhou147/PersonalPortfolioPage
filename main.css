@@ -96,8 +96,37 @@ body {
     height: 40px;
     overflow: hidden;
     border-radius: 50px;
-    border: 3px dashed red;
 }
+
+
+.logo-btn.linkedin {
+    background: url(/icon/linkedin.svg) no-repeat;
+    background-color: black;
+    background-size: 20px 20px;
+    background-position: center;
+}
+
+.logo-btn.github {
+    background: url(/icon/github.svg) no-repeat;
+    background-color: black;
+    background-size: 20px 20px;
+    background-position: center;
+}
+
+.logo-btn.codepen {
+    background: url(/icon/codepen.svg) no-repeat;
+    background-color: black;
+    background-size: 20px 20px;
+    background-position: center;
+}
+
+.logo-btn.twitter {
+    background: url(/icon/twitter.svg) no-repeat;
+    background-color: black;
+    background-size: 20px 20px;
+    background-position: center;
+}
+
 
 .subtitle-with-logo {
     width: 200px;
@@ -127,6 +156,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    cursor: pointer;
 }
 
 .location p{
@@ -138,29 +168,6 @@ body {
     height: 45px;
     margin-bottom: 10px;
     position: relative;
-    animation: pindrop .2s ease forwards;
-}
-
-.location img:hover {
-    animation: pinup .2s ease forwards;
-}
-
-@keyframes pinup {
-    10% {
-        top: 2px;
-    }
-    100% {
-        top: -9px;
-    }
-}
-
-@keyframes pindrop {
-    10% {
-        top: -2px;
-    }
-    100% {
-        top: 5px;
-    }
 }
 
 .outline {
