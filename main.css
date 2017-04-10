@@ -48,14 +48,13 @@ body {
     left: 0;
     top: 0;
     z-index: 10;
-    background-color: dimgrey;
 }
 .loader {
     width: 50vw;
     height: 50vw;
     margin: calc((100vh - 50vw)/2) auto;
-    border: 10vw solid lightgrey;
-    border-top-color: #0e62a3;
+    border: 20px solid black;
+    border-top-color: rgb(0, 216, 178);
     border-radius: 50%;
     animation: loader 2s linear infinite;
 }
@@ -74,7 +73,7 @@ body {
 .action-btn {
     width: 160px;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -82,21 +81,26 @@ body {
     user-select:none;
     cursor: pointer;
     transition: background-color .2s;
-    background-color: black;
-    border: 1px dashed red;
-    color: white;
+    border-bottom: 3px solid white;
 }
 
-.action-btn:hover {
-    background-color:darkgray;
+.action-btn:hover{
+    border-bottom-color: rgb(0, 216, 178);
 }
+
+
 
 .logo-btn {
     width: 40px;
     height: 40px;
     overflow: hidden;
     border-radius: 50px;
+    border: 3px solid rgb(0, 216, 178);
+    border-top-color: rgb(255,119,1);
+    border-bottom-color: rgb(255,119,1);
 }
+
+
 
 
 .logo-btn.linkedin {
@@ -129,7 +133,7 @@ body {
 
 
 .subtitle-with-logo {
-    width: 200px;
+    width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -173,7 +177,6 @@ body {
 .outline {
     width: 80%;
     text-align: center;
-    border-radius: 50px;
     cursor: pointer;
     border:none;
     margin: none;
@@ -196,7 +199,6 @@ body {
     left: 0;
     top: 0;
     z-index: 5;
-    background-color: grey;
 }
 
 .nav-bar__logo {
@@ -233,13 +235,22 @@ body {
 .home {
     height: calc(100% - 56px);
     align-items: center ;
-    background-color: dimgrey;
     text-align: center;
+    font-family: 'EB Garamond', serif;
 }
 
+.home h1,
+.home h2{
+    font-weight:300;
+}
+
+
 .home .action-btn {
+    font-family: 'Play', sans-serif;
     z-index: 5;
 }
+
+
 
 /****************************************
 ****************PORTFOLIO****************
@@ -280,6 +291,27 @@ body {
 /****************************************
 ****************ABOUT********************
 *****************************************/
+.about {
+    font-family: 'Play', sans-serif;
+    line-height: 1.7;
+}
+
+.about p{
+    font-size: 1.2em;
+}
+
+.about h1{
+    font-size: 3em;
+}
+
+.about h2{
+    font-size: 1.7em;
+}
+
+.about h1,
+.about h2{
+    font-family: 'Lato', sans-serif;
+}
 
 .about__photo-social-intro {
     align-items: center;
@@ -315,12 +347,48 @@ body {
     width: 100%;
 }
 
+.about__intro,
+.about__skills,
+.about__about-this-site{
+    width: 100%;
+}
+
+.about .sections{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.about .section {
+    padding: 2% 0;
+}
+
+.about .section span {
+    font-size: 1.5em;
+    font-family:'Lato', sans-serif;
+    font-weight: bold;
+}
+
+.about .section ul{
+    font-size: 1.2em;
+    margin: 0;
+}
+
+
 /****************************************
 ****************CONTACT********************
 *****************************************/
+.contact{
+    font-family: 'Play', sans-serif;
+}
+
+.contact h1 {
+    font-size: 2.5em;
+    font-family: 'Lato', sans-serif;
+}
+
 .contact__intro a{
     text-decoration: none;
-    color:darkslategrey;
 }
 
 .contact__intro a:hover {
@@ -333,7 +401,7 @@ body {
 .contact__location,
 .contact form,
 .contact__location-social{
-    width: 100%;
+    width: 80vw;
     margin-bottom: 5%;
 }
 
@@ -347,15 +415,15 @@ body {
 
 
 .contact form {
+    border: 1px dashed red;
     margin-top: 5%;
 }
 
 .contact form input,
 .contact form textarea{
-    width: 100%; ;
+    width: 100%;
     margin: 5px 0;
     border: none;
-    border-bottom: 1px solid grey;
     transition: all .3s;
     height: 3.8em;
     resize: none;
@@ -363,12 +431,16 @@ body {
 
 .contact form input:focus,
 .contact form textarea:focus {
-    border-bottom: 1px solid black;
     outline: none;
 }
 
 .contact form textarea:focus {
     height: 15em;
+}
+
+.contact input.action-btn {
+    width: 100px;
+    float: right;
 }
 
 /****************************************
@@ -378,7 +450,7 @@ body {
     position: fixed;
     z-index: 10;
     height: calc(100% - 56px);
-    background: linear-gradient(to top, rgba(95, 104, 95,1),rgba(95, 104, 95,0.7));
+    font-family: 'Play', sans-serif;
 }
 
 .nav-page__links {
@@ -404,7 +476,6 @@ body {
 .nav-page__footer p{
     cursor: pointer;
     text-decoration: none;
-    color: rgba(255,255,255,0.8);
 }
 
 .nav-page__footer p{

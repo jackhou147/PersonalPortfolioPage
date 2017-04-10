@@ -11,13 +11,24 @@
 }
 
 .about__photo {
-    width: 40vw;
+    width: 89%;
     height: 40vw;
 }
 
 .social-media{
-    width: 40vw;
+    width: 89%;
 }
+
+.about .sections {
+    width: 75%;
+}
+
+.about .section:nth-child(1) ul:nth-child(2),
+.about .section:nth-child(1) ul:nth-child(3){
+    float: left;
+    margin: 5%;
+}
+
 
 /****************************************
 ****************CONTACT******************
@@ -25,6 +36,7 @@
 .contact__location-social {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .contact__location,
@@ -37,5 +49,8 @@
     margin: 2% 0 0 10%;
 }
 
+/****************************************
+****************HOME*********************
+*****************************************/
 
 

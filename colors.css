@@ -1,0 +1,105 @@
+* {
+    color: white;
+}
+
+.home,
+.portfolio,
+.about,
+.contact,
+.nav-page{
+    background-color: #000000;
+}
+
+/****************************************
+***************LOADER*****************
+*****************************************/
+.loader-page {
+    background-color: whitesmoke;
+}
+
+/****************************************
+***************REUSABLES*****************
+*****************************************/
+.action-btn{
+    background-color: black;
+    color: white;
+}
+
+
+.logo-btn {
+    background-color: black;
+}
+
+/****************************************
+****************NAV BAR******************
+*****************************************/
+.nav-bar{
+    background-color: rgba(0,0,0,0.96);
+    transition: all 0.25s ease;
+}
+
+/****************************************
+****************HOME*********************
+*****************************************/
+.home{
+    color: white;
+}
+
+/****************************************
+****************CONTACT********************
+*****************************************/
+.contact__intro a{
+    color:darkslategrey;
+}
+
+.contact form input,
+.contact form textarea{
+    background-color: black;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+    border-bottom: 1px solid rgb(0, 216, 178);
+    
+}
+
+/****************************************
+****************NAVPAGE********************
+*****************************************/
+.nav-page__links span,
+.nav-page__footer a,
+.nav-page__footer p{
+    color: rgba(255,255,255,0.8);
+}
+
+/****************************************
+****************PORTFOLIO****************
+*****************************************/
+
+
+/****************************************
+****************ABOUT****************
+*****************************************/
+.about h1 {
+    color: rgb(255,119,1);
+}
+
+.about .section:nth-child(1) {
+    background-color: rgb(15,15,15);
+}
+
+.about .section:nth-child(2){
+    background-color: rgb(41,41,41);
+}
+
+.about .section li{
+    transition: color 0.2s ease;
+    cursor: default;
+}
+
+.about .section li:hover {
+    background-color: rgb(0, 216, 178);
+    color: black;
+    font-weight: bold;
+}

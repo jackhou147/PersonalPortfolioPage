@@ -63,9 +63,13 @@ $(document).ready(function(){
         };
         function setOutline(element){
             element.css("border-color","black");
+            element.css("background-color","rgb(0, 216, 178)");
+            element.find("span").css("color","black");
         }
         function removeOutLine(element){
             element.css("border-color","transparent");
+            element.css("background-color","transparent");
+            element.find("span").css("color","white");
         };
         function updateCurrentPage(){
             allPages.forEach(function(page){
@@ -563,7 +567,7 @@ $(document).ready(function(){
         function aboutPageTimeLine(){
             var $photo = $(".about .photo"),
                 $h1 = $(".about__intro h1"),
-                $h3 = $(".about__intro h3"),
+                $h2 = $(".about__intro h2"),
                 $intro = $(".about__intro"),
                 $intro__p = $(".about__intro p"),
                 $skills = $(".about__skills"),
@@ -583,7 +587,7 @@ $(document).ready(function(){
                         x:50,
                         autoAlpha:0,
                     })
-                    .from($h3,0.3, {
+                    .from($h2,0.3, {
                         y:80,
                         autoAlpha:0,
                         ease: Power2.easeout
@@ -639,9 +643,6 @@ $(document).ready(function(){
                     autoAlpha:0,
                     ease: Power2.easeout
                 },"-=0.1");
-                if(delay){
-                    
-                }
             }
 
             hideIntro();
@@ -656,12 +657,12 @@ $(document).ready(function(){
             }
         };
         function contactPageTimeLine(){
-            var $h2 = $(".contact h2"),
+            var $h1 = $(".contact h1"),
                 $p = $(".contact p"),
                 $location = $(".contact__location"),
                 $form = $(".contact .form"),
                 tl = new TimelineLite();
-            tl.from($h2,0.5,{
+            tl.from($h1,0.5,{
                 x: 50,
                 autoAlpha:0,
                 ease: Power2.easeout
@@ -734,6 +735,11 @@ $(document).ready(function(){
                 toggleBodyScrollingX();
             }
         )
+        
+        $navBar.hover(function(){
+            $(this).css("background-color","rgb(0, 216, 178)");
+            $("hr").css("border-color","black");
+        })
 
         /****************************************
         ****************NAVPAGE********************
@@ -839,6 +845,8 @@ $(document).ready(function(){
         },function(){
             locationIconTimeLine().reverse();
         })
+        
+        
         
         /****************************************
         *************MEDIA QURIES****************
