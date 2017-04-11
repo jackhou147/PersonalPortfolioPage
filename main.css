@@ -2,8 +2,10 @@
     box-sizing: border-box;
 }
 
+
 body {
     overflow-x: hidden;
+    width: 100%;
 }
 
 .home,
@@ -21,6 +23,7 @@ body {
     align-items: center;
     padding: 5%;
     border: 1px dashed red;
+    overflow:hidden;
 }
 
 .none-display {
@@ -343,16 +346,15 @@ body {
 }
 
 /***********/
-.about__intro {
-    width: 100%;
-}
-
 .about__intro,
 .about__skills,
 .about__about-this-site{
     width: 100%;
 }
 
+.about__intro {
+    pointer-events: none;
+}
 .about .sections{
     display: flex;
     flex-direction: column;
