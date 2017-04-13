@@ -3,6 +3,11 @@
 *****************************************/
 
 /***********/
+.about__intro,
+.about__skills,
+.about__about-this-site{
+    margin-bottom: 10%;
+}
 
 .about__photo-social {
     width: 45vw;
@@ -32,6 +37,10 @@
 /****************************************
 ****************CONTACT******************
 *****************************************/
+.contact__intro p{
+    font-size: 1.2em;
+}
+
 .contact__location-social {
     display: flex;
     flex-direction: row;
@@ -46,6 +55,10 @@
 
 .contact .social-media {
     margin: 2% 0 0 10%;
+}
+
+.contact input.action-btn{
+    width: 200px;
 }
 
 /****************************************

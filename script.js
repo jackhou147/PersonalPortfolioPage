@@ -62,14 +62,12 @@ $(document).ready(function(){
             })      
         };
         function setOutline(element){
-            element.css("border-color","black");
-            element.css("background-color","rgb(0, 216, 178)");
+            element.css("background-color","#9097A4");
             element.find("span").css("color","black");
         }
         function removeOutLine(element){
-            element.css("border-color","transparent");
             element.css("background-color","transparent");
-            element.find("span").css("color","white");
+            element.find("span").css("color","black");
         };
         function updateCurrentPage(){
             allPages.forEach(function(page){
@@ -736,10 +734,13 @@ $(document).ready(function(){
             }
         )
         
-        $navBar.hover(function(){
-            $(this).css("background-color","rgb(0, 216, 178)");
+        /*$navBar.hover(function(){
+            $(this).css("background-color","#404040");
             $("hr").css("border-color","black");
-        })
+        },function(){
+            $(this).css("background-color","rgba(0,0,0,0.96)");
+            $("hr").css("border-color","white");
+        })*/
 
         /****************************************
         ****************NAVPAGE********************
@@ -802,12 +803,12 @@ $(document).ready(function(){
         var $social = $(".social-media .logo-btn");
         $social.hover(
             function(){
-                TweenLite.to($(this),0.3,{
+                TweenLite.to($(this),0.15,{
                     rotation: 360
                 })
             },
             function(){
-                TweenLite.to($(this),0.3,{
+                TweenLite.to($(this),0.15,{
                 rotation:0
             })
             }

@@ -22,7 +22,6 @@ body {
     justify-content:center;
     align-items: center;
     padding: 5%;
-    border: 1px dashed red;
     overflow:hidden;
 }
 
@@ -76,7 +75,6 @@ body {
 .action-btn {
     width: 160px;
     height: 40px;
-    border-radius: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -84,11 +82,13 @@ body {
     user-select:none;
     cursor: pointer;
     transition: background-color .2s;
-    border-bottom: 3px solid white;
+    background-color: #9097A4;
+    
 }
 
 .action-btn:hover{
-    border-bottom-color: rgb(0, 216, 178);
+    border-color: #FEF569;
+    background-color: #FEF569;
 }
 
 
@@ -97,10 +97,8 @@ body {
     width: 40px;
     height: 40px;
     overflow: hidden;
-    border-radius: 50px;
-    border: 3px solid rgb(0, 216, 178);
-    border-top-color: rgb(255,119,1);
-    border-bottom-color: rgb(255,119,1);
+    /*border-top-color: rgb(255,119,1);
+    border-bottom-color: rgb(255,119,1);*/
 }
 
 
@@ -141,7 +139,6 @@ body {
     display: flex;
     align-items: center;
     position: relative ;
-    border: 1px dashed red;
 }
 
 .subtitle-with-logo .logo-btn,
@@ -151,13 +148,13 @@ body {
 }
 
 .subtitle-with-logo__subtitle {
-    left: 55px;
+    width: 100%;
+    text-align: center;
 }
 
 .location {
     width: 100px;
     height:110px;
-    border: 1px dashed red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -221,7 +218,6 @@ body {
     left: 15px;
     top: 15px;
     cursor: pointer;
-    border: 1px dashed red;
 }
 
 .nav-bar__btn hr:first-child{
@@ -239,7 +235,7 @@ body {
     height: calc(100% - 56px);
     align-items: center ;
     text-align: center;
-    font-family: 'EB Garamond', serif;
+    font-family: 'Roboto', serif;
 }
 
 .home h1,
@@ -301,6 +297,7 @@ body {
 
 .about p{
     font-size: 1.2em;
+    line-height: 1.8em;
 }
 
 .about h1{
@@ -318,7 +315,6 @@ body {
 
 .about__photo-social-intro {
     align-items: center;
-    border: 1px dashed red;
 }
 
 /***********/
@@ -342,7 +338,6 @@ body {
     flex-direction: row;
     justify-content: space-around;
     margin: auto;
-    border: 1px dashed red;
 }
 
 /***********/
@@ -350,6 +345,7 @@ body {
 .about__skills,
 .about__about-this-site{
     width: 100%;
+    margin-bottom: 15%;
 }
 
 .about__intro {
@@ -358,7 +354,7 @@ body {
 .about .sections{
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 95%;
 }
 
 .about .section {
@@ -386,7 +382,7 @@ body {
 
 .contact h1 {
     font-size: 2.5em;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', serif;
 }
 
 .contact__intro a{
@@ -407,9 +403,6 @@ body {
     margin-bottom: 5%;
 }
 
-.contact__location-social{
-     border: 1px dashed red;   
-}
 
 .contact__location {
     width: 100px;
@@ -417,11 +410,10 @@ body {
 
 
 .contact form {
-    border: 1px dashed red;
     margin-top: 5%;
 }
 
-.contact form input,
+.contact form input:not(.action-btn),
 .contact form textarea{
     width: 100%;
     margin: 5px 0;
@@ -441,8 +433,9 @@ body {
 }
 
 .contact input.action-btn {
-    width: 100px;
+    width: 100%;
     float: right;
+    font-size: 1.6em;
 }
 
 /****************************************
@@ -486,7 +479,6 @@ body {
 
 .nav-page hr {
     width: 93%;
-    opacity: 0.4;
     position: absolute;
     top: 72.5%;
 }
@@ -500,11 +492,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around ; 
-    border: 1px dashed red;
 }
 
 .nav-page__footer a:hover{
-    border-bottom: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid black;
     
 }
 

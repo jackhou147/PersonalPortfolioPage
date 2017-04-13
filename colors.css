@@ -1,5 +1,5 @@
 * {
-    color: white;
+    color: black;
 }
 
 .home,
@@ -7,7 +7,9 @@
 .about,
 .contact,
 .nav-page{
-    background-color: #000000;
+    background-color: #2C2E31;
+    background-color: #EBEDF3;
+    color: black;
 }
 
 /****************************************
@@ -21,20 +23,15 @@
 ***************REUSABLES*****************
 *****************************************/
 .action-btn{
-    background-color: black;
-    color: white;
-}
-
-
-.logo-btn {
-    background-color: black;
+    color: black;
 }
 
 /****************************************
 ****************NAV BAR******************
 *****************************************/
 .nav-bar{
-    background-color: rgba(0,0,0,0.96);
+    background-color: #0BA1D9;
+    background-color: #9097A4;
     transition: all 0.25s ease;
 }
 
@@ -52,25 +49,23 @@
     color:darkslategrey;
 }
 
-.contact form input,
+.contact form input:not(.action-btn),
 .contact form textarea{
-    background-color: black;
-    border-bottom: 1px solid whitesmoke;
+    background-color: transparent;
+    border-bottom: 2px solid #323234;
 }
 
 .contact form input:focus,
 .contact form textarea:focus {
-    border-bottom: 1px solid rgb(0, 216, 178);
+    border-bottom-color: yellow;
     
 }
 
 /****************************************
 ****************NAVPAGE********************
 *****************************************/
-.nav-page__links span,
-.nav-page__footer a,
-.nav-page__footer p{
-    color: rgba(255,255,255,0.8);
+.nav-page hr{
+    border-color: black;
 }
 
 /****************************************
@@ -85,8 +80,13 @@
     color: rgb(255,119,1);
 }
 
+.about .section span, li{
+    color: white;
+}
+
+
 .about .section:nth-child(1) {
-    background-color: rgb(15,15,15);
+    background-color: rgb(30,30,30);
 }
 
 .about .section:nth-child(2){
@@ -99,7 +99,8 @@
 }
 
 .about .section li:hover {
-    background-color: rgb(0, 216, 178);
+    background-color: #FEF569;
     color: black;
     font-weight: bold;
 }
+
