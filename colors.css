@@ -57,7 +57,7 @@
 
 .contact form input:focus,
 .contact form textarea:focus {
-    border-bottom-color: yellow;
+    border-bottom-color: green;
     
 }
 
@@ -90,7 +90,7 @@
 }
 
 .about .section:nth-child(2){
-    background-color: rgb(41,41,41);
+    background-color: #65F367;
 }
 
 .about .section li{
